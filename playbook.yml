@@ -1,27 +1,40 @@
 ---
 # application part
-- hosts: application
-  become: yes
-  tasks:
+ - hosts: application
+   become: yes
+   tasks:
     - name: Install Python3
-      state: present
+      ansible.builtin.apt:
+        name: python3
+        state: present
 
     - name: Install Docker
-      apt:
+      ansible.builtin.apt:
         name: docker.io
         state: present
-    
+
     - name: Install MySQL
-      apt: 
+      ansible.builtin.apt:
         name: mysql-server
         state: present
 
-# Database Part
-- hosts: Database
-  become: yes
-  tasks:
-    - name: Install MySQL
-      apt:
-        name: mysql-server
-        sate: present
+    - name: Install MySQL Client
+      ansible.builtin.apt:
+        name: mysql-client
+        state: present
+
+# Database part
+    - hosts: database
+      become: yes
+      tasks:
+        - name: Install MySQL
+          ansible.builtin.apt:
+          name: mysql-server
+          state: present
+
+        - name: Install MySQL Client
+          ansible.builtin.apt:
+          name: mysql-client
+          state: present
+
   
