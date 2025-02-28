@@ -21,16 +21,3 @@
       ansible.builtin.apt:
         name: mysql-client
         state: present
-
-- hosts: database
-  become: yes
-  tasks:
-    - name: Install MySQL on database VM
-      ansible.builtin.apt:
-        name: mysql-server
-        state: present
-
-    - name: Install MySQL Client on database VM
-      ansible.builtin.apt:
-        name: mysql-client
-        state: present
