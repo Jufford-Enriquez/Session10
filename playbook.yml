@@ -2,22 +2,22 @@
 - hosts: application
   become: yes
   tasks:
-    - name: Install Python3 on application VM
+    - name: Install Python3 on databse & application VM
       ansible.builtin.apt:
         name: python3
         state: present
 
-    - name: Install Docker on application VM
+    - name: Install Docker on database & application VM
       ansible.builtin.apt:
         name: docker.io
         state: present
 
-    - name: Install MySQL on application VM
+    - name: Install MySQL on databse & application VM
       ansible.builtin.apt:
         name: mysql-server
         state: present
 
-    - name: Install MySQL Client on application VM
+    - name: Install MySQL Client on database & application VM
       ansible.builtin.apt:
         name: mysql-client
         state: present
