@@ -5,6 +5,7 @@
       ansible.builtin.apt:
         update_cache: yes
 
+
     - name: Install Python3 on database & application VM
       ansible.builtin.apt:
         name: python3
