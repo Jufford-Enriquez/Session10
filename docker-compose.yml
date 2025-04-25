@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .  # Builds your app image from the Dockerfile in the current directory
+    container_name: depapp-container
+    environment:
+      - DB_HOST=host.docker.internal  # This lets the container access your host machine's MySQL
+      - DB_USER=appstorage            # Your existing MySQL user
+      - DB_PASSWORD=1234              # The password you assigned to that user
+      - DB_NAME=appstorage            # Replace this with your actual database name
+    ports:
+      - "5000:5000"  # Exposes the app on localhost:5000
