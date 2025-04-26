@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .  # Builds your app image from the Dockerfile in the current directory
-    container_name: depapp-container
+    container_name: depapp-container-2
     environment:
       - DB_HOST=host.docker.internal  # This lets the container access your host machine's MySQL
       - DB_USER=appstorage            # Your existing MySQL user
