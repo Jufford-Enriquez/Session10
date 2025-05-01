@@ -1,0 +1,18 @@
+name: Deploy to App VM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run Ansible Playbook
+        run: |
+          ansible-playbook -i inventoryFile.ini playbook.yml
